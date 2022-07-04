@@ -1,21 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
-import {Card,Form,Button,Container,Row,Col,Modal} from 'react-bootstrap'
+import {Card,Form,Button,Container,Row,Col} from 'react-bootstrap'
 import axios from 'axios'
 import { Store } from './Store';
 import { FaEdit } from 'react-icons/fa';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { SiAddthis } from 'react-icons/si';
-import { MdOutlineDoneOutline } from 'react-icons/md';
-
 
 function App() {
   const {todoState,todoDispatch} = useContext(Store)
-  
   const [todo, setTodo] = useState('')
   const [id, setId] = useState('')
-
   const [form, setForm] = useState(false)
-
 
   let handleTodo = async (e) =>{
     e.preventDefault()
@@ -46,7 +41,6 @@ function App() {
     let {data} = await axios.get(`/api/todo/${id}`)
     setTodo(data.todo);
     setId(data._id)
-    console.log(data);
   }
 
   let handleModalSubmit = async (e) =>{

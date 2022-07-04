@@ -28,7 +28,6 @@ todoRouter.post('/delete', async (req,res)=>{
 })
 
 todoRouter.get('/:id', async (req,res)=>{
-    // console.log(req.params);
     const data = await Todo.findById(req.params.id)
     res.send(data);
 })

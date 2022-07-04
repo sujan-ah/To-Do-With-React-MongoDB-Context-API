@@ -2,26 +2,21 @@ import { useReducer,createContext } from "react";
 
 const Store = createContext()
 
-
 const initialState = {
-    todo: localStorage.getItem("todo")
-    ? JSON.parse(localStorage.getItem("todo"))
-    : ''
+    todo: ''
 }
-  
+
 const reducer = (state, action) => {
-switch (action.type) {
-    case "TODOLIST":
-    return {
-        ...state,
-        todo: action.payload,
-    };
-    default:
-    return state;
-}
+    switch (action.type) {
+        case "TODOLIST":
+        return {
+            ...state,
+            todo: action.payload,
+        };
+        default:
+        return state;
+    }
 };
-
-
 
 function StoreProvider(props) {
     const [todoState, todoDispatch] = useReducer(reducer, initialState);
@@ -32,6 +27,5 @@ function StoreProvider(props) {
         {props.children}
     </Store.Provider>
 }
-
 
 export { Store, StoreProvider }

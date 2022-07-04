@@ -14,13 +14,10 @@ app.use(express.json())
 
 app.use('/api/todo', todoRouter)
 
-
-
-
 app.get('/', function (req, res) {
   res.send(' World')
 })
 
 app.listen(8000,()=>{
-    console.log('Port Running on 8000 port');
+  console.log('Port Running on 8000 port');
 })

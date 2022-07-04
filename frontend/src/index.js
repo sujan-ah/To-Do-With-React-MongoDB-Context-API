@@ -10,5 +10,4 @@ root.render(
     <StoreProvider deferLoading={true}>
         <App />
     </StoreProvider>
-
 );
